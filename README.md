@@ -32,7 +32,7 @@ This portfolio itself is a showcase of modern, high-performance web design:
 ## 📂 Repository Structure
 ```text
 .
-├── rohitportfolio.html   # Main portfolio file (Single Page Application)
+├── index.html            # Main portfolio file (Single Page Application)
 └── README.md             # Project documentation
 ```
 
@@ -42,7 +42,7 @@ To view the portfolio locally:
    ```bash
    git clone https://github.com/PalaramRohit/Rohit-portfolio.git
    ```
-2. Open `rohitportfolio.html` in any modern web browser.
+2. Open `index.html` in any modern web browser.
 
 ## 📬 Contact Information
 - **Email:** [palaramrohit123@gmail.com](mailto:palaramrohit123@gmail.com)
