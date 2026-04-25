@@ -47,6 +47,7 @@ To view the portfolio locally:
 ## 📬 Contact Information
 - **Email:** [palaramrohit123@gmail.com](mailto:palaramrohit123@gmail.com)
 - **GitHub:** [@PalaramRohit](https://github.com/PalaramRohit)
+- **LinkedIn:** [Palaram Rohit](https://www.linkedin.com/in/palaram-rohit-1379aa2ba/)
 
 ---
 *Built with ❤️ by Rohit Palaram*
