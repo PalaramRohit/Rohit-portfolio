@@ -771,13 +771,14 @@
 
     .ach-card {
       background: var(--white);
-      border: 1px solid var(--gray-100);
-      border-radius: 16px;
-      padding: 32px 28px;
+      border: 1px solid rgba(20, 100, 244, 0.05);
+      border-radius: 20px;
+      padding: 40px 32px;
       text-align: center;
-      transition: all 0.3s;
+      transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     }
 
     .ach-card::after {
@@ -786,21 +787,21 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue-brand), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s;
-      transform-origin: left;
+      height: 6px;
+      background: linear-gradient(90deg, #1464F4, #00D4FF);
+      transition: height 0.3s;
     }
 
     .ach-card:hover {
-      box-shadow: 0 12px 40px rgba(20, 100, 244, 0.12);
-      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(20, 100, 244, 0.1);
+      transform: translateY(-8px);
     }
 
     .ach-card:hover::after {
-      transform: scaleX(1);
+      height: 10px;
     }
+
+
 
     .ach-emoji {
       font-size: 2.5rem;
@@ -1403,7 +1404,7 @@
 
       <div class="project-card reveal">
         <div class="project-num">04</div>
-        <div class="project-achievement">🥈 1st Runner-Up · Microsoft Hackathon</div>
+        <div class="project-achievement">🥈 Shortlisted & 1st Runner-Up · Microsoft</div>
         <div class="project-title">Career Orchestrator</div>
         <div class="project-desc">
           Multi-agent workflow for adaptive career guidance with 3 specialized AI agents — skill assessment, role
