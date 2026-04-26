@@ -8,7 +8,7 @@ Welcome to my professional portfolio! I am a **Software Engineer** and **B.Tech 
 ## 🚀 About Me
 I'm a passionate developer focused on **AI Systems**, **Backend Development**, and **Modern Web Architectures**. Currently serving as the **Technical Lead at AIMERS — MVSR**, I have led multiple R&D projects and secured victories in national-level hackathons.
 
-- 🏆 **2× National Hackathon Winner**
+- 🏆 **National Hackathon Winner & Microsoft 1st Runner-Up**
 - 🛠️ **Technical Lead** at AIMERS — MVSR Engineering College
 - 🔬 **R&D Selected** Project Lead
 - 📈 Specialized in **Predictive Intelligence** and **3D Visualizations**
@@ -26,7 +26,7 @@ This portfolio itself is a showcase of modern, high-performance web design:
 - **Doctor Recommendation Engine:** Location-aware system using Google Places API and health risk assessments.
 
 ## 🏆 Achievements
-- **National Hackathon Wins:** Recognition for innovative solutions in AI and FinTech.
+- **Hackathon Victories:** 1st Place at College Hackathon & 1st Runner-Up at Microsoft National Hackathon.
 - **Globalizing Platforms:** Experience in implementing JWT-based authentication and i18n support.
 
 ## 📂 Repository Structure
