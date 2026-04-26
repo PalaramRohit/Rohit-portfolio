@@ -26,7 +26,7 @@ This portfolio itself is a showcase of modern, high-performance web design:
 - **Doctor Recommendation Engine:** Location-aware system using Google Places API and health risk assessments.
 
 ## 🏆 Achievements
-- **Hackathon Victories:** 1st Place at College Hackathon & 1st Runner-Up at Microsoft National Hackathon.
+- **Hackathon Victories:** 1st Place at National Hackathon & 1st Runner-Up at Microsoft National Hackathon.
 - **Globalizing Platforms:** Experience in implementing JWT-based authentication and i18n support.
 
 ## 📂 Repository Structure
