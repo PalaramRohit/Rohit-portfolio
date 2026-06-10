@@ -1,53 +1,16 @@
-# Rohit Palaram | Software Engineer • AI Systems
+# React + Vite
 
-![Rohit Palaram Portfolio](https://img.shields.io/badge/Portfolio-Live-blue?style=for-the-badge&logo=visual-studio-code)
-![Status](https://img.shields.io/badge/Status-Available_for_Opportunities-success?style=for-the-badge)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Welcome to my professional portfolio! I am a **Software Engineer** and **B.Tech IT student** specializing in building AI-powered systems that solve real-world problems.
+Currently, two official plugins are available:
 
-## 🚀 About Me
-I'm a passionate developer focused on **AI Systems**, **Backend Development**, and **Modern Web Architectures**. Currently serving as the **Technical Lead at AIMERS — MVSR**, I have led multiple R&D projects and secured victories in national-level hackathons.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-- 🏆 **National Hackathon Winner & Microsoft 1st Runner-Up**
-- 🛠️ **Technical Lead** at AIMERS — MVSR Engineering College
-- 🔬 **R&D Selected** Project Lead
-- 📈 Specialized in **Predictive Intelligence** and **3D Visualizations**
+## React Compiler
 
-## 🛠️ Tech Stack
-This portfolio itself is a showcase of modern, high-performance web design:
-- **Frontend:** HTML5, CSS3 (Custom Properties, Flexbox, Grid)
-- **Logic:** Vanilla JavaScript (ES6+)
-- **Design Patterns:** Glassmorphism, Responsive Layouts, Micro-animations
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🌟 Key Projects
-*Detailed in the portfolio:*
-- **Aura - Digital Twin Health AI:** High-fidelity 3D anatomical visualization with risk-driven holographic pulses.
-- **AI Finance Copilot:** Production-grade backend integrating FastAPI, MongoDB, and RAG-based transaction retrieval.
-- **Doctor Recommendation Engine:** Location-aware system using Google Places API and health risk assessments.
+## Expanding the ESLint configuration
 
-## 🏆 Achievements
-- **Hackathon Victories:** 1st Place at National Hackathon & 1st Runner-Up at Microsoft National Hackathon.
-- **Globalizing Platforms:** Experience in implementing JWT-based authentication and i18n support.
-
-## 📂 Repository Structure
-```text
-.
-├── index.html            # Main portfolio file (Single Page Application)
-└── README.md             # Project documentation
-```
-
-## 🌐 Live Preview
-To view the portfolio locally:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/PalaramRohit/Rohit-portfolio.git
-   ```
-2. Open `index.html` in any modern web browser.
-
-## 📬 Contact Information
-- **Email:** [palaramrohit123@gmail.com](mailto:palaramrohit123@gmail.com)
-- **GitHub:** [@PalaramRohit](https://github.com/PalaramRohit)
-- **LinkedIn:** [Palaram Rohit](https://www.linkedin.com/in/palaram-rohit-1379aa2ba/)
-
----
-*Built with ❤️ by Rohit Palaram*
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
