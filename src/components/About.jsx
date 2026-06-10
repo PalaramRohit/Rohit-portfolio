@@ -121,10 +121,7 @@ const About = () => {
           
           <div className="space-y-4 text-sm md:text-base font-medium leading-relaxed text-blue-50 mb-12 max-w-3xl">
             <p>
-              I'm a <strong className="text-black font-extrabold">B.Tech IT student at MVSR Engineering College, Hyderabad</strong>, deeply passionate about building AI systems that matter — from multimodal AI platforms to women safety ecosystems.
-            </p>
-            <p>
-              My work spans full-stack development, machine learning pipelines, and IoT — all tied together by a love for clean architecture and real-world impact. I've shipped production-grade AI systems, led teams under 24-hour hackathon pressure, and pitched funded startups.
+              I'm a <strong className="text-black font-extrabold">B.Tech IT student at MVSR Engineering College, Hyderabad</strong>, deeply passionate about building AI systems and scalable backend architectures.
             </p>
             <p>
               Currently serving as <strong className="text-black font-extrabold">Technical Lead at AIMERS</strong>, mentoring fellow engineers and driving AI/ML projects across the college community.
