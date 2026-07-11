@@ -16,7 +16,7 @@ const About = () => {
       desc: 'Curated 2,000+ annotated data entries for open-source AI datasets. Improved annotation consistency by ~30% through systematic QA workflows.'
     },
     {
-      role: 'Hackathon Organizer — INSPIIRA 2026',
+      role: 'Hackathon Organizer — INSPIRA 2026',
       org: 'MVSR Engineering College',
       period: '2026',
       desc: 'Co-organized inter-college hackathon coordinating 10+ colleges and managing 200+ participants across technical tracks.'
