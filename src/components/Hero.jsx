@@ -1,140 +1,124 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Adjusted import path for the video
-import heroVideo from '../assets/hero video/rohit_talking.mp4';
+import heroBg from '../assets/hero_portrait.jpeg';
 
 const Hero = () => {
-  const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
       easing: 'ease-out'
     });
-    // Video does NOT autoplay anymore
   }, []);
 
-  const toggleVideo = (e) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
-
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Video */}
-      <video
-        ref={videoRef}
-        loop
-        muted={isMuted}
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-      >
-        <source src={heroVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <section id="home" className="relative w-full min-h-screen md:h-screen overflow-hidden bg-black flex items-center">
+      {/* 16:9 Studio Portrait (Rohit positioned on the right against deep black backdrop) */}
+      <img
+        src={heroBg}
+        alt="Rohit Palaram"
+        className="absolute top-0 left-0 w-full h-full object-cover object-[80%_center] md:object-right select-none opacity-95"
+      />
 
-      {/* Content Container */}
-      <div className="absolute inset-0 z-20 px-6 pb-20 md:pb-[8%] md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end text-left w-full">
+      {/* Radial soft blue accent glow in background */}
+      <div 
+        className="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-[#1464F4]/15 blur-[140px] pointer-events-none z-10" 
+      />
+
+      {/* Seamless Dark Vignette & Navy Gradient Overlay on left side */}
+      <div 
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black via-black/80 to-transparent md:w-[60%] lg:w-[55%]" 
+      />
+      {/* Bottom gradient seamlessly joining the dark theme */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-36 z-10 pointer-events-none bg-gradient-to-t from-black via-black/50 to-transparent" 
+      />
+
+      {/* Content Container: two-zone layout with content on left and portrait clear on right */}
+      <div className="relative z-20 px-6 pt-28 pb-16 md:pt-24 md:pb-12 md:px-12 lg:px-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center text-left w-full h-full">
         
-        {/* Left Side: Text and Buttons */}
-        <div className="flex flex-col items-start text-left max-w-2xl w-full">
-          {/* Main Heading */}
+        {/* Left Side: Scaled content column (approx 620-680px on desktop) */}
+        <div className="flex flex-col items-start text-left w-full max-w-full md:max-w-[620px] lg:max-w-[660px] xl:max-w-[680px]">
+          {/* Main Heading (64–76px on large screens, scaled down gracefully for mobile/tablets) */}
           <h1 
             data-aos="fade-up"
-            className="text-white text-3xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[74px] font-extrabold mb-5 tracking-tight leading-[1.08]"
           >
-            Hi, I’m <br /> <span className="text-blue-500 font-extrabold">Rohit Palaram</span>
+            Hi, I’m <br /> <span className="text-[#1464F4] font-extrabold">Rohit Palaram</span>
           </h1>
 
-          {/* Subheading */}
-          <p 
+          {/* Enlarged Professional Summary Card */}
+          <div 
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white text-sm md:text-base font-semibold mb-6 max-w-md drop-shadow-md"
+            className="w-full max-w-[640px] mb-7 p-6 sm:p-7 rounded-2xl bg-[#0b1329]/75 border border-[#1464F4]/30 backdrop-blur-md shadow-[0_12px_40px_rgba(3,7,18,0.6)]"
           >
-            Software Engineer &bull; AI Systems &bull; Backend Dev. Building "Aura Health" — an AI-powered Digital Twin platform.
-          </p>
+            <p className="text-[13px] md:text-[14px] font-bold uppercase tracking-wider text-blue-400 mb-2.5">
+              Professional Summary
+            </p>
+            <p className="text-[#D1D5DB] text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] font-normal">
+              Information Technology undergraduate at MVSR Engineering College with hands-on experience developing full-stack applications and AI-powered prototypes. As Technical Lead at AIMERS, I contribute to architecture planning, phased implementation, integration, and testing. Experienced in REST APIs, database-backed applications, AI-assisted development workflows, and multi-LLM orchestration.
+            </p>
+          </div>
 
-          {/* Stats row */}
+          {/* Enlarged Stats row */}
           <div 
             data-aos="fade-up"
             data-aos-delay="300"
-            className="flex gap-8 mb-8 text-white mt-1"
+            className="flex flex-wrap gap-8 sm:gap-12 md:gap-14 mb-8 text-white mt-1"
           >
             <div>
-              <div className="text-2xl md:text-3xl font-extrabold text-blue-500">2<span className="text-white text-lg">×</span></div>
-              <div className="text-[9px] uppercase tracking-widest text-gray-400">Hackathon Wins</div>
+              <div className="text-3xl sm:text-4xl md:text-[34px] font-extrabold text-[#1464F4] leading-tight">
+                2<span className="text-white text-xl md:text-2xl ml-0.5">×</span>
+              </div>
+              <div className="text-[11px] md:text-[12px] uppercase tracking-wider text-gray-400 font-medium mt-1">
+                Hackathon Wins
+              </div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-extrabold text-blue-500">5<span className="text-white text-lg">+</span></div>
-              <div className="text-[9px] uppercase tracking-widest text-gray-400">AI Projects</div>
+              <div className="text-3xl sm:text-4xl md:text-[34px] font-extrabold text-[#1464F4] leading-tight">
+                5<span className="text-white text-xl md:text-2xl ml-0.5">+</span>
+              </div>
+              <div className="text-[11px] md:text-[12px] uppercase tracking-wider text-gray-400 font-medium mt-1">
+                AI Projects
+              </div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-extrabold text-blue-500">1<span className="text-white text-lg">st</span></div>
-              <div className="text-[9px] uppercase tracking-widest text-gray-400">R&D Selection</div>
+              <div className="text-3xl sm:text-4xl md:text-[34px] font-extrabold text-[#1464F4] leading-tight">
+                1<span className="text-white text-xl md:text-2xl ml-0.5">st</span>
+              </div>
+              <div className="text-[11px] md:text-[12px] uppercase tracking-wider text-gray-400 font-medium mt-1">
+                R&D Selection
+              </div>
             </div>
           </div>
 
-          {/* Buttons */}
+          {/* Improved Buttons (height 48-50px, text 15-16px, comfortable padding) */}
           <div 
             data-aos="fade-up"
             data-aos-delay="400"
-            className="flex flex-row flex-wrap items-center gap-3 w-full"
+            className="flex flex-row flex-wrap items-center gap-4 w-full"
           >
             {/* Primary Button */}
             <button 
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md cursor-pointer"
+              className="h-[48px] md:h-[50px] px-7 md:px-8 text-[15px] md:text-[16px] rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer flex items-center justify-center"
             >
               View Projects
             </button>
             
-            {/* Secondary Button - Glassmorphism style */}
+            {/* Secondary Button - Outlined Glassmorphism style */}
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-4 py-2 md:px-6 md:py-2 text-xs md:text-base rounded-full bg-black/40 border border-white text-white font-semibold hover:bg-black/60 transition-all duration-300 backdrop-blur-md cursor-pointer"
+              className="h-[48px] md:h-[50px] px-7 md:px-8 text-[15px] md:text-[16px] rounded-full bg-black/40 border border-white/80 text-white font-semibold hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-md cursor-pointer flex items-center justify-center"
             >
               Get In Touch
             </button>
           </div>
         </div>
 
-        {/* Right Side: Play Video Button */}
-        <div 
-          data-aos="zoom-in"
-          data-aos-delay="600"
-          className="mt-8 md:mt-0 flex flex-row md:flex-col items-center gap-2 md:gap-3 cursor-pointer group self-start md:self-auto"
-          onClick={toggleVideo}
-        >
-          <div className="w-12 h-12 md:w-20 md:h-20 rounded-full border border-white/30 bg-black/20 backdrop-blur-md flex justify-center items-center group-hover:scale-110 group-hover:bg-[#1464F4] transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_40px_rgba(20,100,244,0.6)]">
-            {!isPlaying || isMuted ? (
-              // Play Icon
-              <svg className="w-5 h-5 md:w-8 md:h-8 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            ) : (
-              // Pause Icon
-              <svg className="w-5 h-5 md:w-8 md:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-              </svg>
-            )}
-          </div>
-          <span className="text-white text-[10px] md:text-xs font-bold tracking-widest uppercase opacity-70 group-hover:opacity-100 transition-opacity">
-            {!isPlaying || isMuted ? "Play Audio Intro" : "Pause"}
-          </span>
-        </div>
+        {/* Right side remains completely open to showcase Rohit's portrait clearly */}
       </div>
 
       {/* Scroll Indicator */}

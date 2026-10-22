@@ -17,7 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Journey', 'Contact'];
+  const navLinks = ['About', 'Skills', 'Projects', 'Journey', 'Contact'];
 
   return (
     <nav 
@@ -39,7 +39,20 @@ const Navbar = () => {
         </div>
 
         {/* Center: Desktop Menu Links */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-7">
+          <a 
+            href="/Rohit_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/90 hover:text-white font-medium relative group transition-colors duration-300 flex items-center gap-1.5"
+          >
+            <span>Resume</span>
+            <svg className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+
           {navLinks.map((link) => (
             <a 
               key={link} 
@@ -83,10 +96,23 @@ const Navbar = () => {
       {/* Mobile Slide-Down Menu */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 py-4 opacity-100 bg-[#1464F4] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
+          isOpen ? 'max-h-[28rem] py-4 opacity-100 bg-[#1464F4] shadow-2xl' : 'max-h-0 opacity-0 bg-transparent'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
+          <a 
+            href="/Rohit_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="text-white hover:text-black font-bold text-lg border-b border-white/20 pb-2 transition-colors flex items-center justify-between"
+          >
+            <span>Resume (PDF)</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+
           {navLinks.map((link) => (
             <a 
               key={link} 

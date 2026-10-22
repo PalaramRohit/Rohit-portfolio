@@ -1,0 +1,280 @@
+/* ==========================================================================
+   3D MAGAZINE ANIMATION SYSTEM (Adapted from Jamie Coulter's 3D Editorial)
+   Preserves:
+   - Perspective (1800px) & 3D preserve-3d hierarchy
+   - rotateY(-180deg) page flip with transform-origin: 0 50%
+   - Mid-transition z-index swapping (0.5s)
+   - Dynamic pagenumber letter-spacing expansion (0 -> 59px) and underline
+   - Polygonal clip-path image reveals
+   - Circular .control buttons with animated horizontal lines
+   - Electric blue (#1464F4) & cyan (#06b6d4) dark cinematic theme
+   ========================================================================== */
+
+:root {
+  --mag-perspective: 1800px;
+  --mag-blue: #1464F4;
+  --mag-cyan: #06b6d4;
+  --mag-bg-dark: #070d1d;
+  --mag-page-bg: #050a18;
+  --mag-transition: transform 1s 0.15s cubic-bezier(0.6, 0.045, 0.165, 1), z-index 0s 0.5s;
+}
+
+/* Scoped Magazine Container (no global body overflow:hidden) */
+.mag-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mag-stage {
+  perspective: var(--mag-perspective);
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 580px;
+  margin: 0 auto;
+}
+
+.mag-book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+  box-shadow: 0 35px 60px -20px rgba(0, 0, 0, 0.9), 0 0 40px -10px rgba(20, 100, 244, 0.25);
+}
+
+/* Individual 3D Page Leaf (50% width, anchored on the spine at left edge) */
+.mag-leaf {
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+  transition: var(--mag-transition);
+}
+
+/* Static Left-hand Base (Leaf 1) */
+.mag-leaf-base {
+  left: 0;
+  right: auto;
+  transform: rotateY(0deg) !important;
+  pointer-events: all;
+  z-index: 1 !important;
+}
+
+/* Flipped State */
+.mag-leaf.flipped {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
+
+.mag-leaf.active-right {
+  pointer-events: all;
+}
+
+/* Inner Page Surface */
+.mag-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  background-color: var(--mag-page-bg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  box-shadow: inset 20px 0 30px -15px rgba(0, 0, 0, 0.8);
+}
+
+.mag-inner-left {
+  box-shadow: inset -20px 0 30px -15px rgba(0, 0, 0, 0.8);
+}
+
+/* Odd pages in the original template flip back-to-front */
+.mag-leaf-backface .mag-inner {
+  transform: rotateY(180deg);
+}
+
+/* Page spine glowing center divider */
+.mag-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(20, 100, 244, 0.4) 20%,
+    rgba(6, 182, 212, 0.7) 50%,
+    rgba(20, 100, 244, 0.4) 80%,
+    transparent
+  );
+  box-shadow: 0 0 16px rgba(20, 100, 244, 0.6);
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* Branding logo & Hamburger decor from template */
+.mag-logo {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--mag-cyan);
+  text-transform: uppercase;
+}
+
+.mag-hamburger {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 24px;
+  height: 14px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.mag-hamburger-line {
+  height: 1.5px;
+  background: var(--mag-cyan);
+  border-radius: 1px;
+}
+
+/* Dynamic Page Numbers with expansive letter-spacing */
+.mag-pagenumber {
+  position: absolute;
+  bottom: 24px;
+  left: 30px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--mag-cyan);
+  letter-spacing: 24px;
+  transition: all 0.8s 0.3s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+
+.mag-pagenumber::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 18px;
+  height: 1.5px;
+  width: 60px;
+  background: var(--mag-blue);
+  transition: all 0.8s 0.3s cubic-bezier(0.6, 0.045, 0.165, 1);
+}
+
+/* Circular Next/Prev Controls with extending line from template */
+.mag-control {
+  position: absolute;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--mag-cyan);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(3, 7, 18, 0.7);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mag-control:hover {
+  left: 32px;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  background: var(--mag-blue);
+  border-color: var(--mag-blue);
+}
+
+.mag-control::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 1px;
+  background: var(--mag-cyan);
+  top: 50%;
+  transform: translateY(-50%);
+  left: -26px;
+  transition: all 0.3s ease;
+}
+
+.mag-control:hover::before {
+  width: 36px;
+  left: -36px;
+  background: var(--mag-blue);
+}
+
+.mag-control.next {
+  left: auto;
+  right: 28px;
+}
+
+.mag-control.next:hover {
+  right: 32px;
+  left: auto;
+}
+
+.mag-control.next::before {
+  left: auto;
+  right: -26px;
+}
+
+.mag-control.next:hover::before {
+  right: -36px;
+  left: auto;
+}
+
+/* Polygonal Clip-Path Reveal for Images */
+.mag-clip-image {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transition: clip-path 0.9s 0.3s cubic-bezier(0.6, 0.045, 0.165, 1), transform 0.6s ease;
+}
+
+/* Staggered text sections */
+.mag-content-section {
+  transition: all 0.8s cubic-bezier(0.6, 0.045, 0.165, 1);
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* Quote formatting from template */
+.mag-quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 70px;
+  line-height: 0;
+  color: rgba(20, 100, 244, 0.3);
+  position: absolute;
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 768px) {
+  .mag-stage {
+    height: auto;
+    min-height: 520px;
+  }
+  .mag-leaf {
+    width: 100%;
+    position: relative;
+    right: auto;
+    top: auto;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .mag-leaf {
+    transition: none !important;
+  }
+}
